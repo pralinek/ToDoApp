@@ -23,7 +23,7 @@ const Counter = ({counterChange}) => {
 
     return(
         <div>
-            {counterChange === 0 ? <p>Great News you have nothing to do!</p>: counterChange <=6 ? <p>You have {toLiteral(counterChange)} tasks to do</p> : <p>{toLiteral(counterChange)} Tasks left, just leave it for tomorrow:)</p>
+            {counterChange === 0 ? <p>Great News, you have nothing to do!</p>: counterChange === 1 ? <p>You have {toLiteral(counterChange)} task to do</p> :counterChange <=6 ? <p>You have {toLiteral(counterChange)} tasks to do.</p> : <p>{toLiteral(counterChange)} Tasks left, just leave it for tomorrow:)</p>
             
 
             }
