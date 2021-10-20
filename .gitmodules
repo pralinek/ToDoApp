@@ -1,0 +1,3 @@
+[submodule "ToDoApp-Styles"]
+	path = ToDoApp-Styles
+	url = https://github.com/pralinek/ToDoApp.git
