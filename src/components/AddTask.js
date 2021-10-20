@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import './AddTask.css'
 
 const AddTask = ({addTask}) =>{
     const [taskName, setTaskName] = useState("")

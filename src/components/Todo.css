@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IM+Fell+English+SC&family=Italianno&family=Lobster&family=PT+Sans&family=Qahiri&family=Roboto&display=swap');
+
+
+.bebas{
+    font-family: 'Bebas Neue', cursive;
+}
+.im{
+    font-family: 'IM Fell English SC', serif;
+}
+
+.it{
+    font-family: 'Italianno', cursive;
+}
+.lobster{
+    font-family: 'Lobster', cursive;
+}
+.pt{
+    font-family: 'PT Sans', sans-serif;
+}
+.qahiri{
+    font-family: 'Qahiri', sans-serif;
+}
+
+.roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.completed{
+    text-decoration: line-through;
+    
+}
+
+.notcompleted{
+    text-decoration: none;
+}
+
+.taskcard{
+    background-color: red;
+}
+
+        
+.container{
+    
+    background: linear-gradient(to bottom left, #65dfc9,  #6cdbeb);
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+  }   
+        
+        
+.transparent{
+    background: white;
+    width: 75%;
+    min-height: 80vh;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5em;
+    border-radius: 30px;
+    margin: 2em;
+    
+    
+    }
+
+    .transparent::after{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        content: "";
+        background-color: red;
+        top: 3rem;
+        left: 5rem;
+        
+        
+    }
+
+.card{
+    min-width: 150px;
+    align-self: auto;
+    flex: 1 1 calc(33.33% -5px);
+    margin: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: all .3s ease-in-out;
+    position: relative;
+}
+
+
+
+.card:hover{
+    transform: scale(1.2);
+    transition: tansfrom 1s;
+    transition: all .3s ease-in-out
+}
+
+.card div{
+    padding: 1.5em;
+    font-size: 0.8em;
+}
+
+.card div p{
+    color: white;
+    font-size: 2em;
+}
+
+
+button{ 
+    display: none;
+}
