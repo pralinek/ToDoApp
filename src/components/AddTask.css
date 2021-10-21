@@ -133,7 +133,7 @@ input {
     display: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   
     .lettert, .lettero, .letterd {
         display: none;
@@ -147,7 +147,9 @@ input {
 
     .letteroo{
         font-size: 4em;
-        top: 0.5em;
+        
+        
+        
     }
     .submit{
        all: unset;
@@ -176,6 +178,9 @@ input {
     input{
         font-size: 1.5em;
         
+    }
+    .card div {
+        font-size: 0.75rem;
     }
 
     

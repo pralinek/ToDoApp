@@ -40,7 +40,7 @@ const Todo = () => {
   const addTask = (taskName) => {
     setTaskList([
       {
-        color: Math.round(Math.random() * 8) - 1,
+        color: Math.round(Math.random() * 7) - 1,
         icon: Math.round(Math.random() * 7) - 1,
         userId: Math.round(Math.random() * 10),
         id: new Date().getTime(),

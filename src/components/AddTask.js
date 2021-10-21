@@ -46,7 +46,7 @@ const AddTask = ({addTask, counterChange}) =>{
                             : counterChange === 9
                             ? "#FF4C29"
                             : counterChange > 9
-                            ? "#E02401" : ''
+                            ? "white" : ''
                         }`
 
                   }}>{counterChange}</span>
