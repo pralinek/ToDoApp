@@ -94,7 +94,8 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    
+    cursor: pointer;
 }
 
 .plus {
@@ -127,3 +128,55 @@ input {
     background-color: white;
     transform: rotate(180deg);
 }
+
+.title{
+    display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  
+    .lettert, .lettero, .letterd {
+        display: none;
+    }
+    .addtask{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .letteroo{
+        font-size: 4em;
+        top: 0.5em;
+    }
+    .submit{
+       all: unset;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: red;
+       width: 3em;
+       height: 3em;
+        margin: 0.5em auto;
+       background-color: #00A19D;
+       border-radius: 50%;
+      
+       
+    }
+
+    .title{
+        padding-top: 0.5em;
+        color: white;
+        text-align: center;
+        font-size: 3em;
+        display: block;
+        line-height: 0.5em;
+    }
+
+    input{
+        font-size: 1.5em;
+        
+    }
+
+    
+  }

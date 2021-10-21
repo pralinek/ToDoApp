@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './AddTask.css'
 
 const AddTask = ({addTask, counterChange}) =>{
-    const [taskName, setTaskName] = useState("Add")
+    const [taskName, setTaskName] = useState("")
  
 
     const handleSubmit = (e) => {
@@ -17,7 +17,8 @@ const AddTask = ({addTask, counterChange}) =>{
             
             
             <form onSubmit={handleSubmit}>
-            <input type="text" value={taskName} required onChange={(e)=>{setTaskName(e.target.value)}}/>
+            <h1 className="title">To Do</h1>
+            <input type="text"  value={taskName} required onChange={(e)=>{setTaskName(e.target.value)}} autoFocus/>
             <button type="submit" className="submit"><span className="plus"> </span></button>
             <div className="lettert"></div>
             <div className="lettero"></div>
@@ -49,7 +50,9 @@ const AddTask = ({addTask, counterChange}) =>{
                         }`
 
                   }}>{counterChange}</span>
-
+       
+            
+         
             </form>
             
             </div>
