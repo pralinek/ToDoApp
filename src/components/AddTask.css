@@ -1,3 +1,129 @@
-div{
-    display: hidden;
+input {
+  all: unset;
+  
+  font-size: 1em;
+   border-radius: 15px;
+  background-color: #FFB344;
+  text-align: center;
+   margin: 1em 1em 0 1em;
+  width: 10em;
+  color: white;
+}
+
+
+.addtask {
+  
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 400px;
+  border-radius: 15px;
+  
+  
+  position: relative;
+  z-index: 3;
+  margin: 0.5em;
+  background-color:#79B4B7;
+  height: 180px;
+  
+}
+
+.addtask:hover {
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
+  transition: tansfrom 1s;
+  transition: all 0.3s;
+}
+
+.lettert{
+    width: 1.5em;
+    height: 7em;
+    background-color: #FEF5ED ;
+    position: absolute;
+    border-radius: 0 0 15px 15px;
+    left: 5.3em;
+    top: 2.50em;
+    z-index: -1;
+}
+
+.lettero{
+    width: 3.5em;
+    height: 3.5em;
+    background-color: transparent;
+    border: 17px solid #FEF5ED;
+    border-radius: 50%;
+    position: absolute;
+    top: 4em;
+    left: 7em;
+    
+    
+}
+
+.letterd{
+    font-size: 9em;
+    position: absolute;
+    color: #FEF5ED;
+    right: 90px;
+    top: 100px;
+    line-height: 0;
+    
+
+}
+
+.letteroo{
+    font-size: 10em;
+    position: absolute;
+    
+    right: 7px;
+    top: 90px;
+    line-height: 0;
+}
+
+.none{
+    display: none;
+}
+
+.submit{
+    all: unset;
+    position: absolute;
+    top: 11px;
+    left: 11em;
+    width: 2em;
+    height: 2em;
+    background-color: #00A19D;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.plus {
+    display: block;
+    position: relative;
+    width: 1.2em;
+    height: 2px;
+    background-color: transparent;
+    pointer-events: none;
+
+
+
+}
+
+.plus::after {
+    content: '';
+    position: absolute;
+    width: 1.2em;
+    height: 2px;
+    background-color: white;
+    transform: rotate(90deg);
+
+}
+
+.plus:before {
+    content: '';
+    position: absolute;
+    width: 1.2em;
+    height: 2px;
+    background-color: white;
+    transform: rotate(180deg);
 }

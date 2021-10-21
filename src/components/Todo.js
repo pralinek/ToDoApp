@@ -1,89 +1,154 @@
-import React, { useEffect, useState } from 'react';
-import AddTask from './AddTask'
-import Counter from './Counter'
-import './Todo.css'
+import React, { useEffect, useState } from "react";
+import AddTask from "./AddTask";
 
+import "./Todo.css";
 
-const Todo = ()=> {
-    const [taskList, setTaskList] = useState([])
-    
+const Todo = () => {
+  const [taskList, setTaskList] = useState([]);
 
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((request) => {
+        return request.json();
+      })
+      .then((apilist) => {
+        let arr = [];
+        while (arr.length < 8) {
+          var r = Math.floor(Math.random() * 100) + 1;
+          if (arr.indexOf(r) === -1) arr.push(r);
+        }
+        let array = [];
+        for (let i = 0; i < 7; i++) {
+          array.push(apilist[arr[i]]);
+        }
 
-    useEffect(()=>{
-        
-        fetch('https://jsonplaceholder.typicode.com/todos').then(request=>{
-            return request.json()
-        }).then(apilist=>{
-            let array = ''
-            let random = Math.round(Math.random()*9)
-            
-            random += "0"
-            ++random
-            --random
-            array = apilist.slice(random,random+10)
-            array = array.map(obj => 
-                 {  let randomcoloricon = Math.round(Math.random()*6)
-                     return {color: randomcoloricon,icon: randomcoloricon, userId: obj.userId,title: obj.title, id: obj.id, completed: obj.completed}} 
-            )  
-            
-            setTaskList(array)
-            
-            
-        })
-    },[])
-    
+        array = array.map((obj, index) => {
+          return {
+            color: index,
+            icon: index,
+            userId: obj.userId,
+            title: obj.title,
+            id: obj.id,
+            completed: false,
+          };
+        });
 
-    const addTask = (taskName) =>{
-        
-        setTaskList([{userId: Math.round((Math.random()*10)),id: new Date().getTime(),title:taskName,completed: false},...taskList])
-           //tasklist.length is bad idea for key value, maybe miliseconds.    
+        setTaskList(array);
+      });
+  }, []);
+
+  const addTask = (taskName) => {
+    setTaskList([
+      {
+        color: Math.round(Math.random() * 7) - 1,
+        icon: Math.round(Math.random() * 7) - 1,
+        userId: Math.round(Math.random() * 10),
+        id: new Date().getTime(),
+        title: taskName,
+        completed: false,
+      },
+      ...taskList,
+    ]);
+    //tasklist.length is bad idea for key value, maybe miliseconds.
+  };
+
+  const handleComplete = (id, e) => {
+    if (e.target.value === "delete") {
+      const deletionTaskList = taskList.filter((task) => {
+        return task.id !== id;
+      });
+      setTaskList(deletionTaskList);
+    } else {
+      const completionTaskList = taskList.map((obj) =>
+        obj.id === id
+          ? {
+              color: obj.color,
+              icon: obj.icon,
+              userId: obj.userId,
+              title: obj.title,
+              id: obj.id,
+              completed: !obj.completed,
+            }
+          : obj
+      );
+
+      setTaskList(completionTaskList);
     }
+  };
 
-    const handleDelete = (id) =>{
-        const updatedTaskList = taskList.filter((task)=>{
-            return task.id !== id
-        })
-        setTaskList(updatedTaskList)
-        
-    }
-    
-    const handleComplete = (id) =>{
-        const updatedTaskList = taskList.map(obj => 
-            obj.id === id ? { color: obj.color, icon: obj.icon, userId: obj.userId,title: obj.title, id: obj.id, completed: !obj.completed } : obj)
-            
-            setTaskList(updatedTaskList)
-        
-    }
-
-    return(
-        
-        <div className="container">
-        <div className="transparent">
-        
-        {false && <Counter counterChange = {taskList.length} />}
-        {true && <AddTask addTask={addTask}/>}
-        {taskList.map((task)=>{
-           return(
-                
-                <div className="card" style={{backgroundColor:`${task.icon === 0 ? "#00A19D": task.icon === 1 ? "#FFB344": task.icon === 2? "#E05D5D": task.icon === 3? "#112031": task.icon === 4? "#22577A": task.icon === 5? "#C36839": task.icon === 6? "#911F27": ""}`}}  key={task.id} >
-                    <div>
-                        <p className={task.icon === 0 ? "bebas": task.icon === 1 ? "im": task.icon === 2? "it": task.icon === 3? "lobster": task.icon === 4? "pt": task.icon === 5? "qahiri": task.icon === 6? "roboto": ""}onClick={()=>{handleComplete(task.id)}}>{task.title} </p>
-                    </div>
-                    <button style={{marginLeft: "1em"}} onClick={()=>{handleDelete(task.id)}}>Done</button>
-                </div>
-            )
+  return (
+    <div className="container">
+      <div className="transparent">
+        <div className="circle"> </div> <div className="circle2"> </div>
+        {true && (
+          <AddTask addTask={addTask} counterChange={taskList.length} />
+        )}{" "}
+        {taskList.map((task) => {
+          return (
+            <div
+              onClick={(e) => {
+                handleComplete(task.id, e);
+              }}
+              className="card"
+              style={{
+                backgroundColor: task.completed
+                  ? ""
+                  : `${
+                      task.icon === 0
+                        ? "#00A19D"
+                        : task.icon === 1
+                        ? "#FFB344"
+                        : task.icon === 2
+                        ? "#E05D5D"
+                        : task.icon === 3
+                        ? "#112031"
+                        : task.icon === 4
+                        ? "#22577A"
+                        : task.icon === 5
+                        ? "#C36839"
+                        : task.icon === 6
+                        ? "#911F27"
+                        : ""
+                    }`,
+                    textDecoration: task.completed ? "line-through": "",
+                    color: "white",
+              }}
+              key={task.id}
+            >
+              <div>
+                <p
+                  className={
+                    task.icon === 0
+                      ? "bebas"
+                      : task.icon === 1
+                      ? "im"
+                      : task.icon === 2
+                      ? "it"
+                      : task.icon === 3
+                      ? "lobster"
+                      : task.icon === 4
+                      ? "pt"
+                      : task.icon === 5
+                      ? "qahiri"
+                      : task.icon === 6
+                      ? "roboto"
+                      : ""
+                  }
+                >
+                  {" "}
+                  {task.title}{" "}
+                </p>{" "}
+                <button value="delete" className="delete">
+                  {" "}
+                  <span className="cross"> </span>
+                </button>
+              </div>{" "}
+            </div>
+          );
         })}
+      </div>
+    </div>
+  );
+};
 
-        </div>
-        
-        </div>
-
-        
-    
-
-        
-    )
-}
-
-export default Todo
-
+export default Todo;
