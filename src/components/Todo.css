@@ -116,6 +116,7 @@
     transform: scale(1.05);
     transition: tansfrom 1s;
     transition: all .3s;
+    z-index: 2;
 }
 
 .card div {
@@ -201,4 +202,5 @@
     .transparent{
         padding-top: 1em;
     }
+    
   }
