@@ -161,9 +161,7 @@
 
 }
 
-.cross:hover {
-    transform: rotate(360deg);
-}
+
 
 .cross::after {
     content: '';
@@ -189,5 +187,18 @@
     .transparent {
       width: 100%;
     }
-   
+    .card div p {
+        font-size: 1.3rem;
+
+    }
+    .delete{
+        width: 2.5em;
+        height: 2.5em
+    }
+    .cross::after, .cross::before{
+        width: 1.3em;
+    }
+    .transparent{
+        padding-top: 1em;
+    }
   }
