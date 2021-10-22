@@ -11,4 +11,7 @@
 
 body{
   background: linear-gradient(to bottom left, #65dfc9, #6cdbeb);
+  display: flex;
+  align-items: center;
+  justify-content: center;;
 }
