@@ -7,6 +7,7 @@ const Todo = () => {
   const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
+    document.title = "ToDoApp"
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((request) => {
         return request.json();
