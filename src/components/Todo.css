@@ -45,9 +45,9 @@
 
 .container {
 
-    background: linear-gradient(to bottom left, #65dfc9, #6cdbeb);
+    
     display: flex;
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
 
 
@@ -143,6 +143,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .delete:hover{
