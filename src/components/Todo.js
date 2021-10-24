@@ -41,8 +41,8 @@ const Todo = () => {
   const addTask = (taskName) => {
     setTaskList([
       {
-        color: Math.round(Math.random() * 7) - 1,
-        icon: Math.round(Math.random() * 7) - 1,
+        color: Math.round(Math.random() * 6),
+        icon: Math.round(Math.random() * 6),
         userId: Math.round(Math.random() * 10),
         id: new Date().getTime(),
         title: taskName,
@@ -109,7 +109,7 @@ const Todo = () => {
                         ? "#C36839"
                         : task.icon === 6
                         ? "#911F27"
-                        : ""
+                        : "#5C6D70"
                     }`,
                     textDecoration: task.completed ? "line-through": "",
                     color: "white",
